@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "simpleautofishing",
+  "version": "${version}",
+  "name": "Simple Auto Fishing",
+  "description": "Simple automatic fishing",
+  "authors": [
+    "Jan-Marvin"
+  ],
+  "contributors": [],
+  "contact": {},
+  "license": "GPL-3.0",
+  "icon": "assets/simpleautofishing/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.minecraft.simpleautofishing.simpleautofishing",
+      "com.minecraft.simpleautofishing.safCore",
+      "com.minecraft.simpleautofishing.safMode"
+    ],
+    "client": [],
+    "server": []
+  },
+  "mixins": [],
+  "depends": {
+    "fabricloader": ">=0.9.1",
+    "fabric": "*",
+    "minecraft": "1.16.2"
+  }
+}
