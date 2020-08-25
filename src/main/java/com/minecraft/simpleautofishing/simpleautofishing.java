@@ -8,18 +8,17 @@ import org.apache.logging.log4j.Logger;
 
 public class simpleautofishing implements ModInitializer {
 
-    public static Logger LOGGER = LogManager.getLogger();
+	public static Logger LOGGER = LogManager.getLogger();
 
-    public static final String MOD_ID = "simpleautofishing";
-    public static final String MOD_NAME = "simpleautofishing";
+	public static final String MOD_ID = "simpleautofishing";
+	public static final String MOD_NAME = "simpleautofishing";
 
-    @Override
-    public void onInitialize() {
-        log(Level.INFO, "Initializing");
-    }
+	@Override
+	public void onInitialize() {
+		log(Level.INFO, "Initializing");
+	}
 
-    public static void log(Level level, String message) {
-        LOGGER.log(level, "[" + MOD_NAME + "] " + message);
-    }
-
+	public static void log(Level level, String message) {
+		LOGGER.log(level, "[" + MOD_NAME + "] " + message);
+	}
 }
