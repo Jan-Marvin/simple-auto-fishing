@@ -1,6 +1,7 @@
 package com.minecraft.simpleautofishing;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.item.Items;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraftforge.event.TickEvent.ClientTickEvent;
@@ -27,7 +28,7 @@ public class safCore {
     	if (FishingBobberExist() && Inst.player.fishingBobber.isInWater()) {
     		if (timer == 0) {
     			timer = 1;
-    		} else if (timer >= 25) {
+    		} else if (timer == 25) {
     			//check if bobber is pulled down
     			if (Inst.player.fishingBobber.getMotion().y < -0.1D) {
     				retract = true;
@@ -37,7 +38,6 @@ public class safCore {
     		}
     	}
     	if (retract || extract) {
-    		//simpleautofishing.LOGGER.info(timer2);
     		if(timer2 == 10 && retract){
     			if (lock == 0) {
     				UseRod();
@@ -59,11 +59,9 @@ public class safCore {
             	extract = false;
             	lock = 0;
     		}
-    	//increments timer2 by 1 every tick
     	timer2++;
     	}
     } 
-    
     
     //check if player exist
     public boolean PyerExist() {
@@ -73,7 +71,7 @@ public class safCore {
     	return false;
     }
     
-  //check if bobber exist
+    //check if bobber exist
     public boolean FishingBobberExist() {
     	if (PyerExist() && Inst.player.fishingBobber != null) {
     		return true;
@@ -81,9 +79,18 @@ public class safCore {
     	return false;
     }
     
+    //hand selector
+    public static Hand getHand() {
+    	if (Inst.player.getHeldItemMainhand().getItem() == Items.FISHING_ROD) {
+    		return Hand.MAIN_HAND;
+    	} else {
+    		return Hand.OFF_HAND;
+    	}
+    }
+    
     //use road
     public static ActionResultType UseRod() {
-        Inst.player.swingArm(Hand.MAIN_HAND);
-        return Inst.playerController.processRightClick(Inst.player, Inst.world, Hand.MAIN_HAND);
+        Inst.player.swingArm(getHand());
+        return Inst.playerController.processRightClick(Inst.player, Inst.world, getHand());
     }
 }
