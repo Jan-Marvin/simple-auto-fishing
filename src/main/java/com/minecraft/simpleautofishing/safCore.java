@@ -1,6 +1,7 @@
 package com.minecraft.simpleautofishing;
 
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.item.Items;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.fabricmc.api.ModInitializer;
@@ -29,7 +30,7 @@ public class safCore implements ModInitializer {
         if (FishingBobberExist() && Inst.player.fishHook.isTouchingWater()) {
             if (timer == 0) {
                 timer = 1;
-            } else if (timer >= 25) {
+            } else if (timer == 25) {
                 //check if bobber is pulled down
                 if (Inst.player.fishHook.getVelocity().getY() < -0.1D) {
                     retract = true;
@@ -43,6 +44,10 @@ public class safCore implements ModInitializer {
             if (timer2 == 5 && retract) {
                 if (lock == 0) {
                     UseRod();
+    				//remove bobber
+    				if (FishingBobberExist()) {
+    					Inst.player.fishHook.remove();
+    				}
                     timer2 = 0;
                     retract = false;
                     extract = true;
@@ -77,10 +82,19 @@ public class safCore implements ModInitializer {
         }
         return false;
     }
+    
+    //hand selector
+    public static Hand getHand() {
+    	if (Inst.player.getMainHandStack().getItem() == Items.FISHING_ROD) {
+    		return Hand.MAIN_HAND;
+    	} else {
+    		return Hand.OFF_HAND;
+    	}
+    }
 
     //use road
     public static ActionResult UseRod() {
-        Inst.player.swingHand(Hand.MAIN_HAND);
-        return Inst.interactionManager.interactItem(Inst.player, Inst.world, Hand.MAIN_HAND);
+        Inst.player.swingHand(getHand());
+        return Inst.interactionManager.interactItem(Inst.player, Inst.world, getHand());
     }
 }
