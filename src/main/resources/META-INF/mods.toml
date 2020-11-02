@@ -1,22 +1,21 @@
-modLoader="javafml" #mandatory
+modLoader="javafml"
 loaderVersion="[33,)"
 license="GPL-3.0"
-issueTrackerURL="https://github.com/Jan-Marvin/simple-auto-fishing/issues" #optional
+issueTrackerURL="https://github.com/Jan-Marvin/simple-auto-fishing/issues"
+
 [[mods]]
 modId="simpleautofishing"
-version="${file.jarVersion}" #mandatory
-displayName="Simple Auto Fishing" #mandatory
-#updateJSONURL="http://myurl.me/" #optional
-displayURL="https://github.com/Jan-Marvin/simple-auto-fishing" #optional
-# A file name (in the root of the mod JAR) containing a logo for display
-logoFile="saf.png" #optional
-description='''
-Simple Auto Fishing
-'''
+version="${file.jarVersion}"
+displayName="Simple Auto Fishing"
+authors="Jan-Marvin"
+#updateJSONURL=""
+displayURL="https://github.com/Jan-Marvin/simple-auto-fishing"
+logoFile="saf.png"
+description="Simple Auto Fishing"
 
 [[dependencies.simpleautofishing]]
-modId="minecraft"
-mandatory=true
-versionRange="[1.16.4]"
-ordering="NONE"
-side="BOTH"
+	modId="minecraft"
+	mandatory=true
+	versionRange="[1.16.4]"
+	ordering="NONE"
+	side="BOTH"
