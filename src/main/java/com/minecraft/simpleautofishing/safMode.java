@@ -50,18 +50,16 @@ public class safMode implements ModInitializer {
 
 	//Modes
 	public static boolean Modes() {
-		ItemStack ism = Inst.player.getMainHandStack();
-		ItemStack iso = Inst.player.getOffHandStack();
 		if (mode == 1) {
-			if (ism.getDamage() >= ism.getMaxDamage() - 3) {
+			if (Inst.player.getMainHandStack().getDamage() >= Inst.player.getMainHandStack().getMaxDamage() - 3) {
 				return false;
-			} else if (ism.getItem() != Items.FISHING_ROD && iso.getDamage() >= iso.getMaxDamage() - 3) {
+			} else if (Inst.player.getMainHandStack().getItem() != Items.FISHING_ROD && Inst.player.getOffHandStack().getDamage() >= Inst.player.getOffHandStack().getMaxDamage() - 3) {
 				return false;
 			}
 		}
-		if (mode == 2 && ism.getItem() != Items.FISHING_ROD) {
+		if (mode == 2 && Inst.player.getMainHandStack().getItem() != Items.FISHING_ROD) {
 			for (int i = 0; i < 9; i++) {
-				if (ism.getItem() == Items.FISHING_ROD) {
+				if (Inst.player.getMainHandStack().getItem() == Items.FISHING_ROD) {
 					return true;
 				}
 				Inst.player.inventory.scrollInHotbar(1D);
