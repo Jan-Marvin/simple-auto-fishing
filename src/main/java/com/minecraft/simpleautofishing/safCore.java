@@ -56,7 +56,7 @@ public class safCore implements ModInitializer {
 			}
 			if (timer2 == 25 && extract) {
 				//extract bobber
-				if (safMode.Modes()) {
+				if (safMode.Modes() && isrod()) {
 					UseRod();
 				}
 				timer2 = 0;
@@ -70,6 +70,14 @@ public class safCore implements ModInitializer {
 	//check if player exist
 	public boolean PyerExist() {
 		if (Inst.player != null) {
+			return true;
+		}
+		return false;
+	}
+	
+	//check if fishing rod is in hand
+	public boolean isrod() {
+		if (PyerExist() && Inst.player.getMainHandStack().getItem() == Items.FISHING_ROD) {
 			return true;
 		}
 		return false;
