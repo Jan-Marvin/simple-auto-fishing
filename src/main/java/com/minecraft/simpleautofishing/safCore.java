@@ -52,7 +52,7 @@ public class safCore {
 				}
 			}
 			if(timer2 == 30 && extract) {
-				if (safMode.Modes()) {
+				if (safMode.Modes() && isrod()) {
 					UseRod();
 				}
 				timer2=0;
@@ -69,7 +69,15 @@ public class safCore {
 			return true;
 		}
 		return false;
-}
+	}
+	
+	//check if fishing rod is in hand
+	public boolean isrod() {
+		if (PyerExist() && Inst.player.getHeldItemMainhand().getItem() == Items.FISHING_ROD) {
+			return true;
+		}
+		return false;
+	}
 
 	//check if bobber exist
 	public boolean FishingBobberExist() {
