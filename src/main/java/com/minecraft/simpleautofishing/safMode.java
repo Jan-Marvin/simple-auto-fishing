@@ -2,21 +2,21 @@ package com.minecraft.simpleautofishing;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraftforge.client.event.InputEvent.ClickInputEvent;
+import net.minecraftforge.event.TickEvent.ClientTickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class safMode {
 	//global vars
 	static int mode; 
+	static int attack_helper;
 	static Minecraft Inst = Minecraft.getInstance();
 
 	//check for FishingRod, sneaking and attack
 	@SubscribeEvent
-	public void ModeChanger(ClickInputEvent event) {
-		if (Inst.player.isCrouching() && Inst.player.getHeldItemMainhand().getItem() == Items.FISHING_ROD && event.isAttack()) {
+	public void ModeChanger(ClientTickEvent event) {
+		if (Inst.player != null && Inst.player.isCrouching() && Inst.player.getHeldItemMainhand().getItem() == Items.FISHING_ROD && AttackReleased()) {
 			if (mode == 2) {
 				mode = 0;
 			} else {
@@ -31,7 +31,19 @@ public class safMode {
 			}
 		}
 	}
-
+	
+	public boolean AttackReleased() {
+		if (Inst.gameSettings.keyBindAttack.isPressed()) {
+			attack_helper = 1;
+			return false;
+		}
+		if (attack_helper == 1) {
+			attack_helper = 0;
+			return true;
+		}
+		return false;
+	}
+	
 	//Modes
 	public static boolean Modes() {
 		if (mode == 1) {
