@@ -1,7 +1,6 @@
 package com.minecraft.simpleautofishing;
 
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.text.TranslatableText;
 

@@ -14,7 +14,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.minecraft.simpleautofishing.simpleautofishing",
+      "com.minecraft.simpleautofishing.saf",
       "com.minecraft.simpleautofishing.safCore",
       "com.minecraft.simpleautofishing.safMode"
     ],
