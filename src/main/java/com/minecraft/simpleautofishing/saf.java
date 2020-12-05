@@ -7,7 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @Mod("simpleautofishing")
-public class simpleautofishing
+public class saf
 {
 	// Directly reference a log4j logger.
 	static final Logger LOGGER = LogManager.getLogger();
@@ -15,9 +15,9 @@ public class simpleautofishing
 	public static safCore safCore = new safCore();
 	public static safMode safMode = new safMode();
 
-	public simpleautofishing() {
+	public saf() {
 		
-		MinecraftForge.EVENT_BUS.register(simpleautofishing.safCore);
-		MinecraftForge.EVENT_BUS.register(simpleautofishing.safMode);
+		MinecraftForge.EVENT_BUS.register(saf.safCore);
+		MinecraftForge.EVENT_BUS.register(saf.safMode);
 	}
 }
