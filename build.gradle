@@ -44,7 +44,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                examplemod {
+                simpleautofishing {
                     source sourceSets.main
                 }
             }
@@ -60,7 +60,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                examplemod {
+                simpleautofishing {
                     source sourceSets.main
                 }
             }
@@ -76,10 +76,10 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
 			// Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
-            args '--mod', 'examplemod', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            args '--mod', 'simpleautofishing', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
-                examplemod {
+                simpleautofishing {
                     source sourceSets.main
                 }
             }
@@ -114,6 +114,17 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 
+}
+
+processResources {
+	inputs.property "vars", project.mod_version
+	from(sourceSets.main.resources.srcDirs) {
+		include '**/mods.toml'
+		expand 'mod_version':project.mod_version
+	}
+	from(sourceSets.main.resources.srcDirs) {
+		exclude '**/mods.toml'
+	}
 }
 
 // Example for how to get properties into the manifest for reading by the runtime..
