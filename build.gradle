@@ -44,7 +44,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                simpleautofishing {
+                examplemod {
                     source sourceSets.main
                 }
             }
@@ -60,7 +60,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                simpleautofishing {
+                examplemod {
                     source sourceSets.main
                 }
             }
@@ -75,11 +75,11 @@ minecraft {
             // Recommended logging level for the console
             property 'forge.logging.console.level', 'debug'
 
-			// Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
-            args '--mod', 'simpleautofishing', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
+            args '--mod', 'examplemod', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
-                simpleautofishing {
+                examplemod {
                     source sourceSets.main
                 }
             }
@@ -116,17 +116,6 @@ dependencies {
 
 }
 
-processResources {
-	inputs.property "vars", project.mod_version
-	from(sourceSets.main.resources.srcDirs) {
-		include '**/mods.toml'
-		expand 'mod_version':project.mod_version
-	}
-	from(sourceSets.main.resources.srcDirs) {
-		exclude '**/mods.toml'
-	}
-}
-
 // Example for how to get properties into the manifest for reading by the runtime..
 jar {
     manifest {
@@ -159,4 +148,15 @@ publishing {
             url "file:///${project.projectDir}/mcmodsrepo"
         }
     }
+}
+
+processResources {
+	inputs.property "vars", project.mod_version
+	from(sourceSets.main.resources.srcDirs) {
+		include '**/mods.toml'
+		expand 'mod_version':project.mod_version
+	}
+	from(sourceSets.main.resources.srcDirs) {
+		exclude '**/mods.toml'
+	}
 }
