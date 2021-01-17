@@ -8,7 +8,10 @@
     "Jan-Marvin"
   ],
   "contributors": [],
-  "contact": {},
+  "contact": {
+    "homepage": "https://github.com/Jan-Marvin/simple-auto-fishing",
+    "sources": "https://github.com/Jan-Marvin/simple-auto-fishing/tree/fabric-latest"
+  },
   "license": "GPL-3.0",
   "icon": "assets/simpleautofishing/icon.png",
   "environment": "*",
@@ -23,8 +26,8 @@
   },
   "mixins": [],
   "depends": {
-    "fabricloader": ">=0.10.6",
+    "fabricloader": ">=0.11.1",
     "fabric": "*",
-    "minecraft": "1.16.4"
+    "minecraft": "1.16.5"
   }
 }
