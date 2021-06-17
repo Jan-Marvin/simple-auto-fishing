@@ -61,7 +61,7 @@ public class safMode implements ModInitializer {
 				if (Inst.player.getMainHandStack().getItem() == Items.FISHING_ROD) {
 					return true;
 				}
-				Inst.player.inventory.scrollInHotbar(1D);
+				Inst.player.getInventory().scrollInHotbar(1D);
 			}
 			return false;
 		}

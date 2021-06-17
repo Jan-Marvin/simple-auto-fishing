@@ -1,6 +1,7 @@
 package com.minecraft.simpleautofishing;
 
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.entity.Entity;
 import net.minecraft.item.Items;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -46,7 +47,7 @@ public class safCore implements ModInitializer {
 					UseRod();
 					//remove bobber
 					if (FishingBobberExist()) {
-						Inst.player.fishHook.remove();
+						Inst.player.fishHook.remove(Entity.RemovalReason.DISCARDED);
 					}
 					timer2 = 0;
 					retract = false;
@@ -68,7 +69,7 @@ public class safCore implements ModInitializer {
 	}
 
 	//check if player exist
-	public boolean PyerExist() {
+	public boolean PlayerExist() {
 		if (Inst.player != null) {
 			return true;
 		}
@@ -77,7 +78,7 @@ public class safCore implements ModInitializer {
 	
 	//check if fishing rod is in hand
 	public boolean isrod() {
-		if (PyerExist() && Inst.player.getMainHandStack().getItem() == Items.FISHING_ROD) {
+		if (PlayerExist() && Inst.player.getMainHandStack().getItem() == Items.FISHING_ROD) {
 			return true;
 		}
 		return false;
@@ -85,7 +86,7 @@ public class safCore implements ModInitializer {
 
 	//check if bobber exist
 	public boolean FishingBobberExist() {
-		if (PyerExist() && Inst.player.fishHook != null) {
+		if (PlayerExist() && Inst.player.fishHook != null) {
 			return true;
 		}
 		return false;
