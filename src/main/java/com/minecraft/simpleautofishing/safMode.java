@@ -1,9 +1,9 @@
 package com.minecraft.simpleautofishing;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.item.Items;
-import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.item.Items;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraftforge.event.TickEvent.ClientTickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -16,24 +16,24 @@ public class safMode {
 	//check for FishingRod, sneaking and attack
 	@SubscribeEvent
 	public void ModeChanger(ClientTickEvent event) {
-		if (Inst.player != null && Inst.player.isCrouching() && Inst.player.getHeldItemMainhand().getItem() == Items.FISHING_ROD && AttackReleased()) {
+		if (Inst.player != null && Inst.player.isCrouching() && Inst.player.getMainHandItem().getItem() == Items.FISHING_ROD && AttackReleased()) {
 			if (mode == 2) {
 				mode = 0;
 			} else {
 				mode++;
 			}
 			if (mode == 0) {
-					Inst.player.sendMessage(new TranslationTextComponent("text.simpleautofishing.safMode.fishing_rod_unprotected"), Inst.player.getUniqueID());
+					Inst.player.sendMessage(new TranslatableComponent("text.simpleautofishing.safMode.fishing_rod_unprotected"), Inst.player.getUUID());
 			} else if (mode == 1) {
-				Inst.player.sendMessage(new TranslationTextComponent("text.simpleautofishing.safMode.fishing_rod_protected"), Inst.player.getUniqueID());
+				Inst.player.sendMessage(new TranslatableComponent("text.simpleautofishing.safMode.fishing_rod_protected"), Inst.player.getUUID());
 			} else if (mode == 2) {
-				Inst.player.sendMessage(new TranslationTextComponent("text.simpleautofishing.safMode.all_in_hotbar"), Inst.player.getUniqueID());
+				Inst.player.sendMessage(new TranslatableComponent("text.simpleautofishing.safMode.all_in_hotbar"), Inst.player.getUUID());
 			}
 		}
 	}
 	
 	public boolean AttackReleased() {
-		if (Inst.gameSettings.keyBindAttack.isPressed()) {
+		if (Inst.options.keyAttack.isDown()) {
 			attack_helper = 1;
 			return false;
 		}
@@ -47,18 +47,18 @@ public class safMode {
 	//Modes
 	public static boolean Modes() {
 		if (mode == 1) {
-			if (Inst.player.getHeldItemMainhand().getDamage() >= Inst.player.getHeldItemMainhand().getMaxDamage() - 3) {
+			if (Inst.player.getMainHandItem().getDamageValue() >= Inst.player.getMainHandItem().getMaxDamage() - 3) {
 				return false;
-			} else if (Inst.player.getHeldItemMainhand().getItem() != Items.FISHING_ROD && Inst.player.getHeldItemOffhand().getDamage() >= Inst.player.getHeldItemOffhand().getMaxDamage() - 3) {
+			} else if (Inst.player.getMainHandItem().getItem() != Items.FISHING_ROD && Inst.player.getMainHandItem().getDamageValue() >= Inst.player.getMainHandItem().getMaxDamage() - 3) {
 				return false;
 			}
 		}
-		if (mode == 2 && Inst.player.getHeldItemMainhand().getItem() != Items.FISHING_ROD) {
-			for (int i = 0; i < PlayerInventory.getHotbarSize(); i++) {
-				if (Inst.player.getHeldItemMainhand().getItem() == Items.FISHING_ROD) {
+		if (mode == 2 && Inst.player.getMainHandItem().getItem() != Items.FISHING_ROD) {
+			for (int i = 0; i < Inventory.getSelectionSize(); i++) {
+				if (Inst.player.getMainHandItem().getItem() == Items.FISHING_ROD) {
 					return true;
 				}
-				Inst.player.inventory.changeCurrentItem(1D);
+				Inst.player.getInventory().swapPaint(1D);
 			}
 			return false;
 		}

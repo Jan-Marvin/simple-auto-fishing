@@ -1,9 +1,9 @@
 package com.minecraft.simpleautofishing;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.item.Items;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Hand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.InteractionHand;
 import net.minecraftforge.event.TickEvent.ClientTickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -25,12 +25,12 @@ public class safCore {
 			timer = 0;
 		}
 		//check if bobber is on water
-		if (FishingBobberExist() && Inst.player.fishingBobber.isInWater()) {
+		if (FishingBobberExist() && Inst.player.fishing.isInWater()) {
 			if (timer == 0) {
 				timer = 1;
 			} else if (timer == 25) {
 				//check if bobber is pulled down
-				if (Inst.player.fishingBobber.getMotion().y < -0.1D) {
+				if (Inst.player.fishing.getY() < -0.1D) {
 					retract = true;
 				}
 			} else if (timer < 25) {
@@ -43,7 +43,7 @@ public class safCore {
 					UseRod();
 					//remove bobber
 					if (FishingBobberExist()) {
-						Inst.player.fishingBobber.remove(false);
+						Inst.player.fishing.remove(false);
 					}
 					timer2=0;
 					retract = false;
@@ -64,7 +64,7 @@ public class safCore {
 	} 
 
 	//check if player exist
-	public boolean PyerExist() {
+	public boolean PlayerExist() {
 		if (Inst.player != null) {
 			return true;
 		}
@@ -73,7 +73,7 @@ public class safCore {
 	
 	//check if fishing rod is in hand
 	public boolean isrod() {
-		if (PyerExist() && Inst.player.getHeldItemMainhand().getItem() == Items.FISHING_ROD) {
+		if (PlayerExist() && Inst.player.getMainHandItem().getItem() == Items.FISHING_ROD) {
 			return true;
 		}
 		return false;
@@ -81,24 +81,25 @@ public class safCore {
 
 	//check if bobber exist
 	public boolean FishingBobberExist() {
-		if (PyerExist() && Inst.player.fishingBobber != null) {
+		if (PlayerExist() && Inst.player.fishing != null) {
 			return true;
 		}
 		return false;
 	}
 
 	//hand selector
-	public static Hand getHand() {
-		if (Inst.player.getHeldItemMainhand().getItem() == Items.FISHING_ROD) {
-			return Hand.MAIN_HAND;
+	public static InteractionHand getHand() {
+		if (Inst.player.getMainHandItem().getItem() == Items.FISHING_ROD) {
+			return InteractionHand.MAIN_HAND;
 		} else {
-			return Hand.OFF_HAND;
+			return InteractionHand.OFF_HAND;
 		}
 	}
 
 	//use road
-	public static ActionResultType UseRod() {
-		Inst.player.swingArm(getHand());
-		return Inst.playerController.processRightClick(Inst.player, Inst.world, getHand());
+	public static InteractionResult UseRod() {
+		Inst.player.swing(getHand());
+		return Inst.player.interact(Inst.player, getHand());
+		//return Inst.playerController.processRightClick(Inst.player, Inst.world, getHand());
 	}
 }

@@ -1,11 +1,11 @@
 modLoader="javafml"
-loaderVersion="[36,)"
+loaderVersion="[${loader_version},)"
 license="GPL-3.0"
 issueTrackerURL="https://github.com/Jan-Marvin/simple-auto-fishing/issues"
 
 [[mods]]
 modId="simpleautofishing"
-version="${mod_version}"
+version= "${mod_version}"
 displayName="Simple Auto Fishing"
 authors="Jan-Marvin"
 displayURL="https://github.com/Jan-Marvin/simple-auto-fishing"
@@ -15,6 +15,13 @@ description='''Simple Auto Fishing'''
 [[dependencies.simpleautofishing]]
 	modId="forge"
 	mandatory=true
-	versionRange="[36,)"
-	ordering="AFTER"
-	side="CLIENT"
+	versionRange="[${forge_version},)"
+	ordering="NONE"
+	side="BOTH"
+
+[[dependencies.simpleautofishing]]
+	modId="minecraft"
+	mandatory=true
+	versionRange="[${minecraft_version}]"
+	ordering="NONE"
+	side="BOTH"
