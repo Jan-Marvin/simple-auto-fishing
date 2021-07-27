@@ -20,11 +20,22 @@ Mode 3
 Use all Rods in hotbar without break protection 
 ```
 ## Downlod:
+<details open>
+  <summary>1.17.x</summary>
+  
 | Minecraft Version  | Forge | Fabric |
 | :----: | :----: | :----: |
-| 1.17.1  |   | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/fabric-v1.1.1/simpleautofishing-fabric-1.1.1.jar)  |
+| 1.17.1  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/forge-v1.1.0/simpleautofishing-forge-1.1.0.jar)  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/fabric-v1.1.1/simpleautofishing-fabric-1.1.1.jar)  |
 | 1.17  |   | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/fabric-v1.1.0/simpleautofishing-fabric-1.1.0.jar)  |
+</details>
+
+<details>
+  <summary>1.16.x</summary>
+  
+| Minecraft Version  | Forge | Fabric |
+| :----: | :----: | :----: |
 | 1.16.5  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/forge-v1.0.6/simpleautofishing-forge-1.0.6.jar)  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/fabric-v1.0.5/simpleautofishing-fabric-1.0.5.jar)  |
 | 1.16.4  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/forge-v1.0.5/simpleautofishing-forge-1.0.5.jar)  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/fabric-v1.0.4/simpleautofishing-fabric-1.0.4.jar)  |
 | 1.16.3  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/forge-v1.0.2/simpleautofishing-forge-1.0.2.jar)  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/fabric-v1.0.2/simpleautofishing-fabric-1.0.2.jar)  |
 | 1.16.2  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/forge-v1.0.1/simpleautofishing-forge-1.0.1.jar)  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/fabric-v1.0.1/simpleautofishing-fabric-1.0.1.jar)  |
+</details>
