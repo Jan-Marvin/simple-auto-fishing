@@ -2,6 +2,7 @@ package com.minecraft.simpleautofishing;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.InteractionHand;
 import net.minecraftforge.event.TickEvent.ClientTickEvent;
@@ -30,7 +31,7 @@ public class safCore {
 				timer = 1;
 			} else if (timer == 25) {
 				//check if bobber is pulled down
-				if (Inst.player.fishing.getY() < -0.1D) {
+				if (Inst.player.fishing.getDeltaMovement().y() < -0.1D) {
 					retract = true;
 				}
 			} else if (timer < 25) {
@@ -43,7 +44,7 @@ public class safCore {
 					UseRod();
 					//remove bobber
 					if (FishingBobberExist()) {
-						Inst.player.fishing.remove(false);
+						Inst.player.fishing.remove(Entity.RemovalReason.DISCARDED);
 					}
 					timer2=0;
 					retract = false;
@@ -98,8 +99,10 @@ public class safCore {
 
 	//use road
 	public static InteractionResult UseRod() {
+		saf.LOGGER.info("Use Road");
 		Inst.player.swing(getHand());
-		return Inst.player.interact(Inst.player, getHand());
+		//return Inst.player.interact(Inst.player, getHand());
 		//return Inst.playerController.processRightClick(Inst.player, Inst.world, getHand());
+		return Inst.gameMode.useItem(Inst.player, Inst.level, getHand());
 	}
 }
