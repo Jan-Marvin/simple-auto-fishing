@@ -36,7 +36,7 @@ public class safMode implements ModInitializer {
 	}
 
 	public boolean AttackReleased() {
-		if (Inst.options.keyAttack.isPressed()) {
+		if (Inst.options.attackKey.isPressed()) {
 			helper = 1;
 			return false;
 		}
