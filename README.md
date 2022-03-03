@@ -25,7 +25,7 @@ Use all Rods in hotbar without break protection
   
 | Minecraft Version  | Forge | Fabric |
 | :----: | :----: | :----: |
-| 1.18.2  |  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/fabric-v1.2.2/simpleautofishing-fabric-1.2.2.jar)  |
+| 1.18.2  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/forge-v1.2.2/simpleautofishing-forge-1.2.2.jar) | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/fabric-v1.2.2/simpleautofishing-fabric-1.2.2.jar)  |
 | 1.18.1  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/forge-v1.2.1/simpleautofishing-forge-1.2.1.jar)  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/fabric-v1.2.1/simpleautofishing-fabric-1.2.1.jar)  |
 | 1.18  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/forge-v1.2.0/simpleautofishing-forge-1.2.0.jar)  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/fabric-v1.2.0/simpleautofishing-fabric-1.2.0.jar)  |
 </details>
