@@ -2,7 +2,7 @@ package com.minecraft.simpleautofishing;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.item.Items;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.Text;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -26,11 +26,11 @@ public class safMode implements ModInitializer {
 				mode++;
 			}
 			if (mode == 0) {
-				Inst.player.sendSystemMessage(new TranslatableText("text.simpleautofishing.safMode.fishing_rod_unprotected"), Inst.player.getUuid());
+				Inst.player.sendMessage(Text.translatable("text.simpleautofishing.safMode.fishing_rod_unprotected"));
 			} else if (mode == 1) {
-				Inst.player.sendSystemMessage(new TranslatableText("text.simpleautofishing.safMode.fishing_rod_protected"), Inst.player.getUuid());
+				Inst.player.sendMessage(Text.translatable("text.simpleautofishing.safMode.fishing_rod_protected"));
 			} else if (mode == 2) {
-				Inst.player.sendSystemMessage(new TranslatableText("text.simpleautofishing.safMode.all_in_hotbar"), Inst.player.getUuid());
+				Inst.player.sendMessage(Text.translatable("text.simpleautofishing.safMode.all_in_hotbar"));
 			}
 		}
 	}

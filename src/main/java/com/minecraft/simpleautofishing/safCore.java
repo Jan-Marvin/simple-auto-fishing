@@ -104,6 +104,6 @@ public class safCore implements ModInitializer {
 	//use road
 	public static ActionResult UseRod() {
 		Inst.player.swingHand(getHand());
-		return Inst.interactionManager.interactItem(Inst.player, Inst.world, getHand());
+		return Inst.interactionManager.interactItem(Inst.player, getHand());
 	}
 }
