@@ -101,8 +101,6 @@ public class safCore {
 	public static InteractionResult UseRod() {
 		saf.LOGGER.info("Use Road");
 		Inst.player.swing(getHand());
-		//return Inst.player.interact(Inst.player, getHand());
-		//return Inst.playerController.processRightClick(Inst.player, Inst.world, getHand());
-		return Inst.gameMode.useItem(Inst.player, Inst.level, getHand());
+		return Inst.gameMode.useItem(Inst.player, getHand());
 	}
 }

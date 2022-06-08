@@ -3,14 +3,14 @@ package com.minecraft.simpleautofishing;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Mod("simpleautofishing")
 public class saf
 {
 	// Directly reference a log4j logger.
-	static final Logger LOGGER = LogManager.getLogger();
+	public static final Logger LOGGER = LoggerFactory.getLogger("simpleautofishing");
 
 	public static safCore safCore = new safCore();
 	public static safMode safMode = new safMode();

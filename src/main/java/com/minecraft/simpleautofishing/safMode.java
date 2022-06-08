@@ -1,9 +1,9 @@
 package com.minecraft.simpleautofishing;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.Items;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraftforge.event.TickEvent.ClientTickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -23,11 +23,11 @@ public class safMode {
 				mode++;
 			}
 			if (mode == 0) {
-					Inst.player.sendMessage(new TranslatableComponent("text.simpleautofishing.safMode.fishing_rod_unprotected"), Inst.player.getUUID());
+					Inst.player.sendSystemMessage(Component.translatable("text.simpleautofishing.safMode.fishing_rod_unprotected"));
 			} else if (mode == 1) {
-				Inst.player.sendMessage(new TranslatableComponent("text.simpleautofishing.safMode.fishing_rod_protected"), Inst.player.getUUID());
+				Inst.player.sendSystemMessage(Component.translatable("text.simpleautofishing.safMode.fishing_rod_protected"));
 			} else if (mode == 2) {
-				Inst.player.sendMessage(new TranslatableComponent("text.simpleautofishing.safMode.all_in_hotbar"), Inst.player.getUUID());
+				Inst.player.sendSystemMessage(Component.translatable("text.simpleautofishing.safMode.all_in_hotbar"));
 			}
 		}
 	}
