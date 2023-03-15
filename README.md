@@ -1,1 +1,1 @@
-﻿# Simple Auto Fishing Forge 1.19.3
+﻿# Simple Auto Fishing Forge 1.19.4
