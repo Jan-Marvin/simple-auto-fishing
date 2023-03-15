@@ -1,0 +1,43 @@
+name: forge builder
+run-name: Build ${{ github.ref_name }}
+
+on:
+  push:
+    tags:
+      - "forge-v*.*.*"
+  
+permissions:
+  contents: write
+  
+jobs:
+  gradle:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-java@v3
+      with:
+        distribution: temurin
+        java-version: 17
+        
+    - name: Setup Gradle
+      uses: gradle/gradle-build-action@v2
+    
+    - name: Execute Gradle build
+      run: chmod +x gradlew && ./gradlew build
+      
+    - name: sign jar
+      run: |
+        echo "${{ secrets.SAF_B64 }}" > saf.b64
+        base64 -d saf.b64 > saf
+        jarsigner -storepass "${{ secrets.SAFP }}" -keystore saf build/libs/*.jar saf
+
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      with:
+        name: ${{ github.ref_name }}
+        generate_release_notes: true
+        tag_name: ${{ github.ref }}
+        files: build/libs/*
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
