@@ -1,1 +1,1 @@
-﻿# Simple Auto Fishing Fabric 1.20
+﻿# Simple Auto Fishing Fabric 1.20.1
