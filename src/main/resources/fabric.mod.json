@@ -1,8 +1,8 @@
 {
 	"schemaVersion": 1,
 	"id": "simpleautofishing",
-	"version": "${mod_version}",
-	"name": "Simple Auto Fishing",
+	"version": "${version}",
+	"name": "simpleautofishing",
 	"description": "Simple automatic fishing",
 	"authors": [
 		"Jan-Marvin"
@@ -16,19 +16,16 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.minecraft.simpleautofishing.saf",
-			"com.minecraft.simpleautofishing.safCore",
-			"com.minecraft.simpleautofishing.safMode"
+			"de.simpleautofishing.simpleautofishing"
 		]
 	},
-	"mixins": [],
+	"mixins": [
+		"simpleautofishing.mixins.json"
+	],
 	"depends": {
-		"fabricloader": ">=${loader_version}",
-		"minecraft": "${minecraft_version}",
+		"fabricloader": ">=0.15.3",
+		"minecraft": "1.20.3",
 		"java": ">=17",
 		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
 	}
 }
