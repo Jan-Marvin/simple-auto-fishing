@@ -3,6 +3,7 @@ plugins {
     id 'idea'
     id 'maven-publish'
     id 'net.minecraftforge.gradle' version '[6.0.16,6.2)'
+	id 'org.spongepowered.mixin' version '0.7.+'
 }
 
 version = mod_version
@@ -73,12 +74,6 @@ minecraft {
             // You can set various levels here.
             // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
             property 'forge.logging.console.level', 'debug'
-
-            mods {
-                "${mod_id}" {
-                    source sourceSets.main
-                }
-            }
         }
 
         client {
@@ -129,6 +124,10 @@ dependencies {
     // If the group id is "net.minecraft" and the artifact id is one of ["client", "server", "joined"],
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+	
+		
+	// Apply Mixin AP
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
@@ -144,6 +143,12 @@ dependencies {
     // For more info:
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
+}
+
+mixin {
+    // MixinGradle Settings
+    add sourceSets.main, 'mixins.simpleautofishing.refmap.json'
+    config 'mixins.simpleautofishing.json'
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
@@ -175,7 +180,6 @@ tasks.named('jar', Jar).configure {
             'Implementation-Title'    : project.name,
             'Implementation-Version'  : project.jar.archiveVersion,
             'Implementation-Vendor'   : mod_authors
-			
         ])
     }
 
