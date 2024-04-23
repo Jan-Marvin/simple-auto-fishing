@@ -1,4 +1,4 @@
-package de.simpleautofishing.mixin;
+package simpleautofishing.mixin;
 
 import net.minecraft.entity.projectile.FishingBobberEntity;
 import org.spongepowered.asm.mixin.Mixin;

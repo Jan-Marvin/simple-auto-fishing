@@ -1,6 +1,6 @@
-package de.simpleautofishing;
+package simpleautofishing;
 
-import de.simpleautofishing.simpleautofishing;
+import simpleautofishing.simpleautofishing;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.item.Items;
 import net.minecraft.text.Text;

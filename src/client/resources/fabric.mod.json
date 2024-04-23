@@ -15,17 +15,20 @@
 	"icon": "assets/simpleautofishing/icon.png",
 	"environment": "*",
 	"entrypoints": {
-		"main": [
-			"de.simpleautofishing.simpleautofishing"
+		"client": [
+			"simpleautofishing.simpleautofishing"
 		]
 	},
 	"mixins": [
-		"simpleautofishing.mixins.json"
+		{
+			"config": "simpleautofishing.mixins.json",
+			"environment": "client"
+		}
 	],
 	"depends": {
-		"fabricloader": ">=0.15.3",
-		"minecraft": "1.20.4",
-		"java": ">=17",
+		"fabricloader": ">=0.15.10",
+		"minecraft": "1.20.5",
+		"java": ">=21",
 		"fabric-api": "*"
 	}
 }

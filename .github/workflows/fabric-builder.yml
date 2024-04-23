@@ -17,20 +17,15 @@ jobs:
     - uses: actions/setup-java@v4
       with:
         distribution: temurin
-        java-version: 17
+        java-version: 21
         
 
     - name: Setup Gradle
-      uses: gradle/gradle-build-action@v2
+      uses: gradle/actions/setup-gradle@v3
     
     - name: Execute Gradle build
       run: chmod +x gradlew && ./gradlew build
-      
-    - name: sign jar
-      run: |
-        echo "${{ secrets.SAF_B64 }}" > saf.b64
-        base64 -d saf.b64 > saf
-        jarsigner -storepass "${{ secrets.SAFP }}" -keystore saf build/libs/simpleautofishing-*.jar saf
+
 
     - name: Generate release body
       run: |
@@ -38,8 +33,14 @@ jobs:
         echo "MinecraftVersion=$(cut -c 19- <<< $(cat gradle.properties | grep minecraft_version))" >> "$GITHUB_ENV"
         echo "ModVersion=$(cut -c 13- <<< $(cat gradle.properties | grep mod_version))" >> "$GITHUB_ENV"
       
+    - name: sign jar
+      run: |
+        echo "${{ secrets.SAF_B64 }}" > saf.b64
+        base64 -d saf.b64 > saf
+        jarsigner -storepass "${{ secrets.SAFP }}" -keystore saf build/libs/simpleautofishing-${{ env.ModVersion }}.jar saf
+      
     - name: Publish
-      uses: softprops/action-gh-release@v1
+      uses: softprops/action-gh-release@v2
       with:
         name: Simple Auto Fishing Fabric ${{ env.ReleaseVersion }}
         generate_release_notes: true

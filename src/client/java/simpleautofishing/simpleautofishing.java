@@ -1,23 +1,23 @@
-package de.simpleautofishing;
+package simpleautofishing;
 
-import de.simpleautofishing.mixin.FishingBobberEntityAccessorMixin;
+import simpleautofishing.mixin.FishingBobberEntityAccessorMixin;
 import net.minecraft.util.Hand;
 import net.minecraft.item.Items;
 import net.minecraft.client.MinecraftClient;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.fabricmc.api.ModInitializer;
+import net.fabricmc.api.ClientModInitializer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class simpleautofishing implements ModInitializer {
+public class simpleautofishing implements ClientModInitializer {
 	private MinecraftClient client = MinecraftClient.getInstance();
     public static final Logger LOGGER = LoggerFactory.getLogger("simpleautofishing");
 	int delay = 15;
 	boolean extract = true;
 
 	@Override
-	public void onInitialize() {
+	public void onInitializeClient() {
 		LOGGER.info("Registering simpleautofishing!");
 		ClientTickEvents.END_CLIENT_TICK.register(this::onTick);
 	}
