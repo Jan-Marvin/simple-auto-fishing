@@ -1,7 +1,7 @@
 {
     "required": true,
     "minVersion": "0.8",
-    "package": "de.jm.simpleautofishing.mixin",
+    "package": "simpleautofishing.mixin",
     "compatibilityLevel": "JAVA_17",
     "refmap": "mixins.simpleautofishing.refmap.json",
     "mixins": [

@@ -1,6 +1,6 @@
-package de.jm.simpleautofishing;
+package simpleautofishing;
 
-import de.jm.simpleautofishing.mixin.FishingBobberEntityAccessorMixin;
+import simpleautofishing.mixin.FishingBobberEntityAccessorMixin;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.InteractionHand;

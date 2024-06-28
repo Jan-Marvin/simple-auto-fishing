@@ -1,4 +1,4 @@
-package de.jm.simpleautofishing;
+package simpleautofishing;
 
 import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;

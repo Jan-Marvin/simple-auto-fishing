@@ -1,4 +1,4 @@
-package de.jm.simpleautofishing.mixin;
+package simpleautofishing.mixin;
 
 import net.minecraft.world.entity.projectile.FishingHook;
 import org.spongepowered.asm.mixin.Mixin;
