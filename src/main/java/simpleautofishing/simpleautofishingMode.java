@@ -13,14 +13,14 @@ public class simpleautofishingMode {
 
     public static void ModeChanger() {
 
-        
+
         if (client.player.isCrouching() && (client.player.getMainHandItem().getItem() == Items.FISHING_ROD || client.player.getOffhandItem().getItem() == Items.FISHING_ROD) && AttackReleased()) {
             if (mode == 2) {
                 mode = 0;
             } else {
                 mode++;
             }
-			
+
             if (mode == 0) {
                 client.player.sendSystemMessage(Component.translatable("text.simpleautofishing.safMode.fishing_rod_unprotected"));
             } else if (mode == 1) {
@@ -55,15 +55,15 @@ public class simpleautofishingMode {
         return true;
     }
 
-	public static boolean AttackReleased() {
-		if (client.options.keyAttack.isDown()) {
-			attackHelper = 1;
-			return false;
-		}
-		if (attackHelper == 1) {
-			attackHelper = 0;
-			return true;
-		}
-		return false;
-	}
+    public static boolean AttackReleased() {
+        if (client.options.keyAttack.isDown()) {
+            attackHelper = 1;
+            return false;
+        }
+        if (attackHelper == 1) {
+            attackHelper = 0;
+            return true;
+        }
+        return false;
+    }
 }

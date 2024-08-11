@@ -1,10 +1,10 @@
-name: forge builder
+name: NeoForge
 run-name: Build Simple Auto Fishing ${{ github.ref_name }}
 
 on:
   push:
     tags:
-      - "forge-v*.*.*"
+      - "neoforge-v*.*.*"
   
 permissions:
   contents: write
@@ -27,8 +27,8 @@ jobs:
       
     - name: Generate release body
       run: |
-        echo "ReleaseVersion=$(cut -c 7- <<< ${{ github.ref_name }})" >> "$GITHUB_ENV"
-        echo "MinecraftVersion=$(cut -c 19- <<< $(cat gradle.properties | grep minecraft_version))" >> "$GITHUB_ENV"
+        echo "ReleaseVersion=$(cut -c 10- <<< ${{ github.ref_name }})" >> "$GITHUB_ENV"
+        echo "MinecraftVersion=$(cut -c 19- <<< $(cat gradle.properties | grep -w minecraft_version))" >> "$GITHUB_ENV"
         echo "ModVersion=$(cut -c 13- <<< $(cat gradle.properties | grep mod_version))" >> "$GITHUB_ENV"
 
     - name: sign jar
@@ -40,7 +40,7 @@ jobs:
     - name: Publish
       uses: softprops/action-gh-release@v1
       with:
-        name: Simple Auto Fishing Forge ${{ env.ReleaseVersion }}
+        name: Simple Auto Fishing NeoForge ${{ env.ReleaseVersion }}
         generate_release_notes: true
         body: For Minecraft ${{ env.MinecraftVersion }}
         tag_name: ${{ github.ref }}
