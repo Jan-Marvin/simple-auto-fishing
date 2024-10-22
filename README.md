@@ -22,10 +22,11 @@ Use all Rods in hotbar without break protection
 ## Downlod:
 
 <details open>
-  <summary>1.21</summary>
+  <summary>1.21.x</summary>
   
 | Minecraft Version  | Forge | NeoForge | Fabric |
 | :----: | :----: | :----: | :----: |
+| 1.21.1  |   |  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/fabric-v1.6.2/simpleautofishing-1.6.2.jar)  |
 | 1.21.1  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/forge-v1.6.1/simpleautofishing-1.6.1.jar)  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/neoforge-v1.6.1/simpleautofishing-1.6.1.jar) | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/fabric-v1.6.1/simpleautofishing-1.6.1.jar)  |
 | 1.21  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/forge-v1.6.0/simpleautofishing-1.6.0.jar)  |  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/fabric-v1.6.0/simpleautofishing-1.6.0.jar)  |
 </details>
