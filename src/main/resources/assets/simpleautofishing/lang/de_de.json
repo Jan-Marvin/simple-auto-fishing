@@ -1,5 +1,5 @@
 {
-  "text.simpleautofishing.safMode.fishing_rod_unprotected": "<saf> ausgewählte Angel verwenden (ungeschützt)",
-  "text.simpleautofishing.safMode.fishing_rod_protected": "<saf> ausgewählte Angel verwenden (geschützt)",
-  "text.simpleautofishing.safMode.all_in_hotbar": "<saf> alle Angeln in der Schnellzugriffsleiste verwenden"
+  "text.simpleautofishing.safMode.fishing_rod_unprotected": "Ausgewählte Angel verwenden (ungeschützt)",
+  "text.simpleautofishing.safMode.fishing_rod_protected": "Ausgewählte Angel verwenden (geschützt)",
+  "text.simpleautofishing.safMode.all_in_hotbar": "Alle Angeln in der Schnellzugriffsleiste verwenden"
 }

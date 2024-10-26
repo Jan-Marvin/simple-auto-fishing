@@ -22,11 +22,11 @@ public class simpleautofishingMode {
             }
 			
             if (mode == 0) {
-                client.player.sendSystemMessage(Component.translatable("text.simpleautofishing.safMode.fishing_rod_unprotected"));
+                client.player.displayClientMessage(Component.translatable("text.simpleautofishing.safMode.fishing_rod_unprotected"), true);
             } else if (mode == 1) {
-                client.player.sendSystemMessage(Component.translatable("text.simpleautofishing.safMode.fishing_rod_protected"));
+                client.player.displayClientMessage(Component.translatable("text.simpleautofishing.safMode.fishing_rod_protected"), true);
             } else if (mode == 2) {
-                client.player.sendSystemMessage(Component.translatable("text.simpleautofishing.safMode.all_in_hotbar"));
+                client.player.displayClientMessage(Component.translatable("text.simpleautofishing.safMode.all_in_hotbar"), true);
             }
         }
     }
@@ -45,10 +45,11 @@ public class simpleautofishingMode {
 
         if (mode == 2 && client.player.getMainHandItem().getItem() != Items.FISHING_ROD) {
             for (int i = 0; i < 9; i++) {
+                client.player.getInventory().setSelectedHotbarSlot(i);
                 if (client.player.getMainHandItem().getItem() == Items.FISHING_ROD) {
                     return true;
                 }
-                client.player.getInventory().swapPaint(1D);
+
             }
             return false;
         }
