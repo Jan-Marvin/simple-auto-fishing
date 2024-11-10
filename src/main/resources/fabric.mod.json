@@ -12,7 +12,7 @@
 		"issues": "https://github.com/Jan-Marvin/simple-auto-fishing/issues",
 		"sources": "https://github.com/Jan-Marvin/simple-auto-fishing"
 	},
-	"license": "GPL-3.0",
+	"license": "CC BY-NC-ND 4.0",
 	"icon": "assets/simpleautofishing/icon.png",
 	"environment": "*",
 	"entrypoints": {
