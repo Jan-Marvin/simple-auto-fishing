@@ -9,6 +9,7 @@
 	],
 	"contact": {
 		"homepage": "https://github.com/Jan-Marvin/simple-auto-fishing",
+		"issues": "https://github.com/Jan-Marvin/simple-auto-fishing/issues",
 		"sources": "https://github.com/Jan-Marvin/simple-auto-fishing"
 	},
 	"license": "GPL-3.0",
