@@ -1,6 +1,8 @@
 <img src="https://github.com/Jan-Marvin/simple-auto-fishing/blob/fabric-latest/src/client/resources/assets/simpleautofishing/icon.png" align="right" width="15%" />
 
-# Simple-Auto-Fishing
+# [Simple-Auto-Fishing](https://modrinth.com/mod/simple-auto-fishing)
+
+
 
 A minecraft mod for automatic fishing
 
@@ -21,12 +23,14 @@ Use all Rods in hotbar without break protection
 ```
 ## Downlod:
 
+Get it on [modrinth](https://modrinth.com/mod/simple-auto-fishing) or below:
+
 <details open>
   <summary>1.21.x</summary>
   
 | Minecraft Version  | Forge | NeoForge | Fabric |
 | :----: | :----: | :----: | :----: |
-| 1.21.3  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/forge-v1.6.3/simpleautofishing-1.6.3.jar)  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/neoforge-v1.6.3/simpleautofishing-1.6.3.jar) | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/fabric-v1.6.3/simpleautofishing-1.6.3.jar)  |
+| 1.21.3  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/forge-v1.6.4/simpleautofishing-1.6.4.jar)  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/neoforge-v1.6.4/simpleautofishing-1.6.4.jar) | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/fabric-v1.6.4/simpleautofishing-1.6.4.jar)  |
 | 1.21.2  |   |  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/fabric-v1.6.2/simpleautofishing-1.6.2.jar)  |
 | 1.21.1  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/forge-v1.6.1/simpleautofishing-1.6.1.jar)  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/neoforge-v1.6.1/simpleautofishing-1.6.1.jar) | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/fabric-v1.6.1/simpleautofishing-1.6.1.jar)  |
 | 1.21  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/forge-v1.6.0/simpleautofishing-1.6.0.jar)  |  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/fabric-v1.6.0/simpleautofishing-1.6.0.jar)  |
