@@ -1,4 +1,4 @@
-<img src="https://github.com/Jan-Marvin/simple-auto-fishing/blob/fabric-latest/src/client/resources/assets/simpleautofishing/icon.png" align="right" width="15%" />
+<img src="https://github.com/Jan-Marvin/simple-auto-fishing/blob/fabric-latest/src/main/resources/assets/simpleautofishing/icon.png" align="right" width="15%" />
 
 # [Simple-Auto-Fishing](https://modrinth.com/mod/simple-auto-fishing)
 
@@ -30,6 +30,7 @@ Get it on [modrinth](https://modrinth.com/mod/simple-auto-fishing) or below:
   
 | Minecraft Version  | Forge | NeoForge | Fabric |
 | :----: | :----: | :----: | :----: |
+| 1.21.4  |   |  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/fabric-v1.6.5/simpleautofishing-1.6.5.jar)  |
 | 1.21.3  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/forge-v1.6.4/simpleautofishing-1.6.4.jar)  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/neoforge-v1.6.4/simpleautofishing-1.6.4.jar) | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/fabric-v1.6.4/simpleautofishing-1.6.4.jar)  |
 | 1.21.2  |   |  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/fabric-v1.6.2/simpleautofishing-1.6.2.jar)  |
 | 1.21.1  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/forge-v1.6.1/simpleautofishing-1.6.1.jar)  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/neoforge-v1.6.1/simpleautofishing-1.6.1.jar) | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/fabric-v1.6.1/simpleautofishing-1.6.1.jar)  |
