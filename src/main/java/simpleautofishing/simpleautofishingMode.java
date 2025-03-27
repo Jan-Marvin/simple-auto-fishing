@@ -45,7 +45,7 @@ public class simpleautofishingMode {
 
         if (mode == 2 && client.player.getMainHandItem().getItem() != Items.FISHING_ROD) {
             for (int i = 0; i < 9; i++) {
-                client.player.getInventory().setSelectedHotbarSlot(i);
+                client.player.getInventory().setSelectedSlot(i);
                 if (client.player.getMainHandItem().getItem() == Items.FISHING_ROD) {
                     return true;
                 }
