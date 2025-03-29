@@ -19,7 +19,6 @@ public class simpleautofishing
 
     public static final String MODID = "simpleautofishing";
     public static final Logger LOGGER = LogUtils.getLogger();
-    private static Minecraft client = Minecraft.getInstance();
     private int delay = 20;
     private boolean hookCastOut = true;
 
@@ -37,14 +36,14 @@ public class simpleautofishing
 
         simpleautofishingMode.ModeChanger();
 
-        if (client.player.fishing == null && !hookCastOut && delay == 15) {
+        if (Minecraft.getInstance().player.fishing == null && !hookCastOut && delay == 15) {
             UseRod();
             hookCastOut = true;
-        } else if (client.player.fishing == null && !hookCastOut && delay != 15) {
+        } else if (Minecraft.getInstance().player.fishing == null && !hookCastOut && delay != 15) {
             delay++;
         }
 
-        if (client.player.fishing != null && ((FishingBobberEntityAccessorMixin) client.player.fishing).getBiting()) {
+        if (Minecraft.getInstance().player.fishing != null && ((FishingBobberEntityAccessorMixin) Minecraft.getInstance().player.fishing).getBiting()) {
             UseRod();
             delay = 0;
             hookCastOut = false;
@@ -56,12 +55,12 @@ public class simpleautofishing
         if (!simpleautofishingMode.modeCheck()) {
             return;
         }
-        if (client.player.getMainHandItem().getItem() == Items.FISHING_ROD) {
-            client.player.swing(InteractionHand.MAIN_HAND);
-            client.gameMode.useItem(client.player, InteractionHand.MAIN_HAND);
+        if (Minecraft.getInstance().player.getMainHandItem().getItem() == Items.FISHING_ROD) {
+            Minecraft.getInstance().player.swing(InteractionHand.MAIN_HAND);
+            Minecraft.getInstance().gameMode.useItem(Minecraft.getInstance().player, InteractionHand.MAIN_HAND);
         } else {
-            client.player.swing(InteractionHand.OFF_HAND);
-            client.gameMode.useItem(client.player, InteractionHand.OFF_HAND);
+            Minecraft.getInstance().player.swing(InteractionHand.OFF_HAND);
+            Minecraft.getInstance().gameMode.useItem(Minecraft.getInstance().player, InteractionHand.OFF_HAND);
         }
     }
 

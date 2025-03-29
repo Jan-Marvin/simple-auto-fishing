@@ -7,14 +7,13 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Items;
 
 public class simpleautofishingMode {
-    private static Minecraft client = Minecraft.getInstance();
     static int attackHelper, mode;
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public static void ModeChanger() {
 
 
-        if (client.player.isCrouching() && (client.player.getMainHandItem().getItem() == Items.FISHING_ROD || client.player.getOffhandItem().getItem() == Items.FISHING_ROD) && AttackReleased()) {
+        if (Minecraft.getInstance().player.isCrouching() && (Minecraft.getInstance().player.getMainHandItem().getItem() == Items.FISHING_ROD || Minecraft.getInstance().player.getOffhandItem().getItem() == Items.FISHING_ROD) && AttackReleased()) {
             if (mode == 2) {
                 mode = 0;
             } else {
@@ -22,11 +21,11 @@ public class simpleautofishingMode {
             }
 
             if (mode == 0) {
-                client.player.displayClientMessage(Component.translatable("text.simpleautofishing.safMode.fishing_rod_unprotected"), true);
+                Minecraft.getInstance().player.displayClientMessage(Component.translatable("text.simpleautofishing.safMode.fishing_rod_unprotected"), true);
             } else if (mode == 1) {
-                client.player.displayClientMessage(Component.translatable("text.simpleautofishing.safMode.fishing_rod_protected"), true);
+                Minecraft.getInstance().player.displayClientMessage(Component.translatable("text.simpleautofishing.safMode.fishing_rod_protected"), true);
             } else if (mode == 2) {
-                client.player.displayClientMessage(Component.translatable("text.simpleautofishing.safMode.all_in_hotbar"), true);
+                Minecraft.getInstance().player.displayClientMessage(Component.translatable("text.simpleautofishing.safMode.all_in_hotbar"), true);
             }
         }
     }
@@ -37,16 +36,16 @@ public class simpleautofishingMode {
         }
 
         if (mode == 1) {
-            if (client.player.getMainHandItem().getItem() == Items.FISHING_ROD && client.player.getMainHandItem().getDamageValue() <= client.player.getMainHandItem().getMaxDamage() - 3) {
+            if (Minecraft.getInstance().player.getMainHandItem().getItem() == Items.FISHING_ROD && Minecraft.getInstance().player.getMainHandItem().getDamageValue() <= Minecraft.getInstance().player.getMainHandItem().getMaxDamage() - 3) {
                 return true;
             }
             return false;
         }
 
-        if (mode == 2 && client.player.getMainHandItem().getItem() != Items.FISHING_ROD) {
+        if (mode == 2 && Minecraft.getInstance().player.getMainHandItem().getItem() != Items.FISHING_ROD) {
             for (int i = 0; i < 9; i++) {
-                client.player.getInventory().setSelectedHotbarSlot(i);
-                if (client.player.getMainHandItem().getItem() == Items.FISHING_ROD) {
+                Minecraft.getInstance().player.getInventory().setSelectedSlot(i);
+                if (Minecraft.getInstance().player.getMainHandItem().getItem() == Items.FISHING_ROD) {
                     return true;
                 }
             }
@@ -56,7 +55,7 @@ public class simpleautofishingMode {
     }
 
     public static boolean AttackReleased() {
-        if (client.options.keyAttack.isDown()) {
+        if (Minecraft.getInstance().options.keyAttack.isDown()) {
             attackHelper = 1;
             return false;
         }
