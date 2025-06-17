@@ -1,11 +1,9 @@
 modLoader="javafml" #mandatory
 
-loaderVersion="${loader_version_range}" #mandatory
 license="${mod_license}"
 issueTrackerURL="https://github.com/Jan-Marvin/simple-auto-fishing/issues"
 
 [[mods]]
-
 modId="${mod_id}"
 version="${mod_version}"
 displayName="${mod_name}"
