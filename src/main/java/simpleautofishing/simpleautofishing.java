@@ -1,15 +1,14 @@
 package simpleautofishing;
 
 import simpleautofishing.mixin.FishingBobberEntityAccessorMixin;
-import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.Items;
-import net.minecraftforge.common.MinecraftForge;
+import com.mojang.logging.LogUtils;
 import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.event.TickEvent.ClientTickEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.eventbus.api.listener.SubscribeEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 import org.slf4j.Logger;
 
@@ -17,27 +16,22 @@ import org.slf4j.Logger;
 @Mod(simpleautofishing.MODID)
 public class simpleautofishing {
 
-    public static final String MODID = "simpleautofishing";
-    public static final Logger LOGGER = LogUtils.getLogger();
-    private static Minecraft client = Minecraft.getInstance();
-    private int delay = 20;
-    private boolean hookCastOut = true;
+	public static final String MODID = "simpleautofishing";
+	public static final Logger LOGGER = LogUtils.getLogger();
+	private static Minecraft client = Minecraft.getInstance();
+	private int delay = 20;
+	private boolean hookCastOut = true;
 
-    public simpleautofishing() {
-        LOGGER.info("Register simpleautofishing");
-        MinecraftForge.EVENT_BUS.register(this);
+	public simpleautofishing(FMLJavaModLoadingContext context) {
+		LOGGER.info("Register simpleautofishing");
+		TickEvent.ClientTickEvent.Post.BUS.addListener(this::onTickEvent);
+	}
 
-    }
-
-    @SubscribeEvent
-	public void onTick(ClientTickEvent event) {
+	@SubscribeEvent
+	public void onTickEvent(TickEvent.ClientTickEvent.Post event) {
 		if (client.player == null) {
 			return;
 		}
-
-        if (event.phase == TickEvent.Phase.START) {
-            return;
-        }
 
 		simpleautofishingMode.ModeChanger();
 
@@ -55,9 +49,9 @@ public class simpleautofishing {
 		}
 	}
 
-    public void UseRod() {
+	public void UseRod() {
 
-        if (!simpleautofishingMode.modeCheck()) {
+		if (!simpleautofishingMode.modeCheck()) {
 			return;
 		}
 		if (client.player.getMainHandItem().getItem() == Items.FISHING_ROD) {
