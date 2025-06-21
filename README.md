@@ -21,7 +21,7 @@ Use current Rod with break protection
 Mode 3
 Use all Rods in hotbar without break protection 
 ```
-## Downlod:
+## Download:
 
 Get it on [modrinth](https://modrinth.com/mod/simple-auto-fishing) or below:
 
