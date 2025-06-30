@@ -1,1 +1,1 @@
-﻿# Simple Auto Fishing NeoForge 1.21.6
+﻿# Simple Auto Fishing NeoForge 1.21.7
