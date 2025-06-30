@@ -146,7 +146,7 @@ dependencies {
 	// Forge 1.21.6+ uses EventBus 7, which shifts most of its runtime validation to compile-time via an annotation processor
     // to improve performance in production environments. This line is required to enable said compile-time validation
     // in your development environment, helping you catch issues early.
-    annotationProcessor 'net.minecraftforge:eventbus-validator:7.0-beta.7'
+    annotationProcessor 'net.minecraftforge:eventbus-validator:7.0-beta.10'
 
     // Apply Mixin AP
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
@@ -204,6 +204,7 @@ tasks.named('jar', Jar) {
             'Implementation-Vendor'   : mod_authors,
             'MixinConfigs'            : 'mixins.simpleautofishing.json'
         ])
+			attributes['MixinConfigs'] = "${mod_id}.mixins.json"
     }
 }
 
