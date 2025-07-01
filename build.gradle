@@ -204,7 +204,6 @@ tasks.named('jar', Jar) {
             'Implementation-Vendor'   : mod_authors,
             'MixinConfigs'            : 'mixins.simpleautofishing.json'
         ])
-			attributes['MixinConfigs'] = "${mod_id}.mixins.json"
     }
 }
 
