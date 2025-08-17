@@ -2,13 +2,14 @@ package simpleautofishing;
 
 import simpleautofishing.mixin.FishingBobberEntityAccessorMixin;
 import net.minecraft.util.Hand;
-import net.minecraft.item.Items;
 import net.minecraft.client.MinecraftClient;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.api.ClientModInitializer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import static simpleautofishing.simpleautofishingMode.fishingRod;
 
 public class simpleautofishing implements ClientModInitializer {
 	private MinecraftClient client = MinecraftClient.getInstance();
@@ -47,7 +48,7 @@ public class simpleautofishing implements ClientModInitializer {
 		if (!simpleautofishingMode.modeCheck()) {
 			return;
 		}
-		if (client.player.getMainHandStack().getItem() == Items.FISHING_ROD) {
+		if (client.player.getMainHandStack().isIn(fishingRod)) {
 			client.player.swingHand(Hand.MAIN_HAND);
 			client.interactionManager.interactItem(client.player, Hand.MAIN_HAND);
 		} else {
