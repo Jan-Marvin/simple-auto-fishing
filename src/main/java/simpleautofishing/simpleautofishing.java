@@ -3,7 +3,6 @@ package simpleautofishing;
 import simpleautofishing.mixin.FishingBobberEntityAccessorMixin;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.item.Items;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -11,6 +10,8 @@ import net.minecraftforge.eventbus.api.listener.SubscribeEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 import org.slf4j.Logger;
+
+import static simpleautofishing.simpleautofishingMode.fishingRod;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(simpleautofishing.MODID)
@@ -54,7 +55,7 @@ public class simpleautofishing {
 		if (!simpleautofishingMode.modeCheck()) {
 			return;
 		}
-		if (client.player.getMainHandItem().getItem() == Items.FISHING_ROD) {
+		if (client.player.getMainHandItem().is(fishingRod)) {
 			client.player.swing(InteractionHand.MAIN_HAND);
 			client.gameMode.useItem(client.player, InteractionHand.MAIN_HAND);
 		} else {

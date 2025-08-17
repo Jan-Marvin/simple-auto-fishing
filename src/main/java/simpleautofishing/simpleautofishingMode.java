@@ -4,22 +4,22 @@ import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.item.Items;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 
 public class simpleautofishingMode {
     private static Minecraft client = Minecraft.getInstance();
     static int attackHelper, mode;
     public static final Logger LOGGER = LogUtils.getLogger();
+    static TagKey<Item> fishingRod = TagKey.create(Registries.ITEM, ResourceLocation.parse("c:tools/fishing_rod"));
 
     public static void ModeChanger() {
 
         
-        if (client.player.isCrouching() && (client.player.getMainHandItem().getItem() == Items.FISHING_ROD || client.player.getOffhandItem().getItem() == Items.FISHING_ROD) && AttackReleased()) {
-            if (mode == 2) {
-                mode = 0;
-            } else {
-                mode++;
-            }
+        if (client.player.isCrouching() && (client.player.getMainHandItem().is(fishingRod) || client.player.getOffhandItem().is(fishingRod)) && AttackReleased()) {
+            mode = (mode + 1) % 3;
 			
             if (mode == 0) {
                 client.player.displayClientMessage(Component.translatable("text.simpleautofishing.safMode.fishing_rod_unprotected"), true);
@@ -37,16 +37,16 @@ public class simpleautofishingMode {
         }
 
         if (mode == 1) {
-            if (client.player.getMainHandItem().getItem() == Items.FISHING_ROD && client.player.getMainHandItem().getDamageValue() <= client.player.getMainHandItem().getMaxDamage() - 3) {
+            if (client.player.getMainHandItem().is(fishingRod) && client.player.getMainHandItem().getDamageValue() <= client.player.getMainHandItem().getMaxDamage() - 3) {
                 return true;
             }
             return false;
         }
 
-        if (mode == 2 && client.player.getMainHandItem().getItem() != Items.FISHING_ROD) {
+        if (mode == 2 && (client.player.getMainHandItem().is(fishingRod))) {
             for (int i = 0; i < 9; i++) {
                 client.player.getInventory().setSelectedSlot(i);
-                if (client.player.getMainHandItem().getItem() == Items.FISHING_ROD) {
+                if (client.player.getMainHandItem().is(fishingRod)) {
                     return true;
                 }
 
