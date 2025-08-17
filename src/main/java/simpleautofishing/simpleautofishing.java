@@ -12,6 +12,9 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
 import simpleautofishing.mixin.FishingBobberEntityAccessorMixin;
+
+import static simpleautofishing.simpleautofishingMode.fishingRod;
+
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(simpleautofishing.MODID)
 public class simpleautofishing
@@ -55,7 +58,7 @@ public class simpleautofishing
         if (!simpleautofishingMode.modeCheck()) {
             return;
         }
-        if (Minecraft.getInstance().player.getMainHandItem().getItem() == Items.FISHING_ROD) {
+        if (Minecraft.getInstance().player.getMainHandItem().is(fishingRod)) {
             Minecraft.getInstance().player.swing(InteractionHand.MAIN_HAND);
             Minecraft.getInstance().gameMode.useItem(Minecraft.getInstance().player, InteractionHand.MAIN_HAND);
         } else {
