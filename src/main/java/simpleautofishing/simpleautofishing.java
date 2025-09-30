@@ -22,7 +22,7 @@ public class simpleautofishing
 
     public static final String MODID = "simpleautofishing";
     public static final Logger LOGGER = LogUtils.getLogger();
-    private int delay = 20;
+    private int delay = 15;
     private boolean hookCastOut = true;
 
     public simpleautofishing() {
