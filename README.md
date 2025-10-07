@@ -30,6 +30,7 @@ Get it on [modrinth](https://modrinth.com/mod/simple-auto-fishing) or below:
   
 | Minecraft Version  | Forge | NeoForge | Fabric |
 | :----: | :----: | :----: | :----: |
+| 1.21.10  |  |  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/fabric-v1.6.9/simpleautofishing-1.6.9.jar)  |
 | 1.21.9  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/forge-v1.6.9/simpleautofishing-1.6.9.jar) | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/neoforge-v1.6.10/simpleautofishing-1.6.10.jar)  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/fabric-v1.6.9/simpleautofishing-1.6.9.jar)  |
 | 1.21.8  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/forge-v1.6.9/simpleautofishing-1.6.9.jar) | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/neoforge-v1.6.9/simpleautofishing-1.6.9.jar) | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/fabric-v1.6.9/simpleautofishing-1.6.9.jar)  |
 | 1.21.7  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/forge-v1.6.8/simpleautofishing-1.6.8.jar) | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/neoforge-v1.6.8/simpleautofishing-1.6.8.jar) | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/fabric-v1.6.8/simpleautofishing-1.6.8.jar)  |
