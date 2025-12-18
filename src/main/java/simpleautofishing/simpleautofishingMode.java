@@ -1,7 +1,7 @@
 package simpleautofishing;
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import org.slf4j.Logger;
@@ -12,7 +12,7 @@ import net.minecraft.network.chat.Component;
 public class simpleautofishingMode {
     static int attackHelper, mode;
     public static final Logger LOGGER = LogUtils.getLogger();
-    static TagKey<Item> fishingRod = TagKey.create(Registries.ITEM, ResourceLocation.parse("c:tools/fishing_rod"));
+    static TagKey<Item> fishingRod = TagKey.create(Registries.ITEM, Identifier.parse("c:tools/fishing_rod"));
 
     public static void ModeChanger() {
 
