@@ -92,11 +92,11 @@ public class simpleautofishing {
         if (client.player.isCrouching() && attackKeyReleased(client.options.keyAttack.isDown())) {
             FishingRodMode = FishingRodMode.next();
             if (FishingRodMode == FishingRodModes.fishingRodUnprotected) {
-                client.player.displayClientMessage(Component.translatable("text.simpleautofishing.safMode.fishing_rod_unprotected"), true);
+                client.player.sendOverlayMessage(Component.translatable("text.simpleautofishing.safMode.fishing_rod_unprotected"));
             } else if (FishingRodMode == FishingRodModes.fishingRodProtected) {
-                client.player.displayClientMessage(Component.translatable("text.simpleautofishing.safMode.fishing_rod_protected"), true);
+                client.player.sendOverlayMessage(Component.translatable("text.simpleautofishing.safMode.fishing_rod_protected"));
             } else if (FishingRodMode == FishingRodModes.allInHotbar) {
-                client.player.displayClientMessage(Component.translatable("text.simpleautofishing.safMode.all_in_hotbar"), true);
+                client.player.sendOverlayMessage(Component.translatable("text.simpleautofishing.safMode.all_in_hotbar"));
             }
         }
         if (client.player.fishing != null && caughtFish(((FishingBobberEntityAccessorMixin) client.player.fishing).getBiting())) {

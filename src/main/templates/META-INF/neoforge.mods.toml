@@ -9,8 +9,8 @@ version="${mod_version}"
 displayName="${mod_name}"
 displayURL="https://github.com/Jan-Marvin/simple-auto-fishing"
 logoFile="saf.png"
-authors="${mod_authors}"
-description='''${mod_description}'''
+authors="Jan-Marvin"
+description='''Simple Auto Fishing'''
 
 [[mixins]]
 config="${mod_id}.mixins.json"
