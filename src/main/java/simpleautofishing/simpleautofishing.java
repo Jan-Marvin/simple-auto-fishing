@@ -37,7 +37,8 @@ public class simpleautofishing {
     enum FishingRodModes {
         fishingRodUnprotected,
         fishingRodProtected,
-        allInHotbar;
+        allInHotbar,
+        allInHotbarProtected;
 
         public FishingRodModes next() {
             return values()[(ordinal() + 1) % values().length];
@@ -97,6 +98,8 @@ public class simpleautofishing {
                 client.player.sendOverlayMessage(Component.translatable("text.simpleautofishing.safMode.fishing_rod_protected"));
             } else if (FishingRodMode == FishingRodModes.allInHotbar) {
                 client.player.sendOverlayMessage(Component.translatable("text.simpleautofishing.safMode.all_in_hotbar"));
+            } else if (FishingRodMode == FishingRodModes.allInHotbarProtected) {
+                client.player.sendOverlayMessage(Component.translatable("text.simpleautofishing.safMode.all_in_hotbar_protected"));
             }
         }
         if (client.player.fishing != null && caughtFish(((FishingBobberEntityAccessorMixin) client.player.fishing).getBiting())) {
@@ -146,6 +149,24 @@ public class simpleautofishing {
                         break;
                     }
                 }
+            case FishingRodModes.allInHotbarProtected:
+                ItemStack currentRod = client.player.getItemInHand(InteractionHand.MAIN_HAND);
+                if (currentRod.getDamageValue() > currentRod.getMaxDamage() - 4) {
+                    int activeSlot = client.player.getInventory().getSelectedSlot();
+                    boolean switched = false;
+                    for (int i = 0; i < 9; i++) {
+                        if (i == activeSlot) continue;
+                        ItemStack candidate = client.player.getInventory().getItem(i);
+                        if (isFishingRodEquipped(candidate) && candidate.getDamageValue() <= candidate.getMaxDamage() - 4) {
+                            client.player.getInventory().setSelectedSlot(i);
+                            switched = true;
+                            break;
+                        }
+                    }
+                    if (!switched) break;
+                }
+                client.player.swing(InteractionHand.MAIN_HAND);
+                client.gameMode.useItem(client.player, InteractionHand.MAIN_HAND);
         }
     }
 
