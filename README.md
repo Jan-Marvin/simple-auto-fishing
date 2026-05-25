@@ -10,9 +10,14 @@ A minecraft mod for automatic fishing
 ```
 Change mode:   Sneak + Attack (while fishing rod is equipped in main hand)
 ```
+
 Starting with Minecraft 1.21.11:
 ```
 Change cast delay:   /saf set <delay> (default 17)
+```
+Starting with Minecraft 26.1.2:
+```
+Toggle mod on/off:   /saf toggle (default enabled)
 ```
 ## Modes:
 ```
@@ -25,6 +30,11 @@ Use current Rod with break protection
 Mode 3
 Use all Rods in hotbar without break protection 
 ```
+Starting with Minecraft 26.1.2:
+```
+Mode 4
+Use all Rods in hotbar with break protection
+```
 ## Download:
 
 Get it on [modrinth](https://modrinth.com/mod/simple-auto-fishing) or below:
@@ -35,7 +45,7 @@ Get it on [modrinth](https://modrinth.com/mod/simple-auto-fishing) or below:
   
 | Minecraft Version  | Forge | NeoForge | Fabric |
 | :----: | :----: | :----: | :----: |
-| 26.1.2 | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/forge-v1.7.0/simpleautofishing-1.7.0.jar) | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/neoforge-v1.7.0/simpleautofishing-1.7.0.jar) | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/fabric-v1.7.0/simpleautofishing-1.7.0.jar) |
+| 26.1.2 | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/forge-v1.7.1/simpleautofishing-1.7.1.jar) | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/neoforge-v1.7.1/simpleautofishing-1.7.1.jar) | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/fabric-v1.7.1/simpleautofishing-1.7.1.jar) |
 | 26.1.1 | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/forge-v1.7.0/simpleautofishing-1.7.0.jar) |  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/fabric-v1.7.0/simpleautofishing-1.7.0.jar) |
 
 </details>
