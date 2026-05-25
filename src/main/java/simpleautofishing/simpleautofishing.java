@@ -28,6 +28,7 @@ public class simpleautofishing {
 	public static final String MODID = "simpleautofishing";
 	public static final Logger LOGGER = LogUtils.getLogger();
 	private static Minecraft client;
+	public static boolean enabled = true;
 	boolean reeledIn, stateAttackKeyReleased = false;
 	FishingRodModes FishingRodMode = FishingRodModes.fishingRodUnprotected;
 	private int delay = 0;
@@ -54,6 +55,23 @@ public class simpleautofishing {
 	public void RegisterClientCommandsEvent(RegisterClientCommandsEvent event) {
 		CommandDispatcher<CommandSourceStack> dispatcher = event.getDispatcher();
 		dispatcher.register(net.minecraft.commands.Commands.literal("saf")
+				.then(net.minecraft.commands.Commands.literal("toggle")
+						.executes(context -> {
+							enabled = !enabled;
+							if (enabled) {
+								context.getSource().sendSuccess(
+										() -> Component.translatable("text.simpleautofishing.cmd.enabled"),
+										false
+								);
+							} else {
+								context.getSource().sendSuccess(
+										() -> Component.translatable("text.simpleautofishing.cmd.disabled"),
+										false
+								);
+							}
+							return 1;
+						})
+				)
 				.then(net.minecraft.commands.Commands.literal("set")
 						.then(net.minecraft.commands.Commands.argument("delay", IntegerArgumentType.integer())
 								.executes(context -> {
@@ -74,6 +92,10 @@ public class simpleautofishing {
 
 	@SubscribeEvent
 	public void onTickEvent(TickEvent.ClientTickEvent.Pre event) {
+		if (!enabled) {
+			return;
+		}
+
 		if (Minecraft.getInstance() == null) {
 			return;
 		} else if (Minecraft.getInstance() != null && client == null) {
