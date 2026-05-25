@@ -22,6 +22,7 @@ import org.slf4j.LoggerFactory;
 
 public class simpleautofishing implements ClientModInitializer {
 	private static Minecraft client;
+	public static boolean enabled = true;
 	public static final Logger LOGGER = LoggerFactory.getLogger("simpleautofishing");
 	FishingRodModes FishingRodMode = FishingRodModes.fishingRodUnprotected;
 	int delay = 0;
@@ -45,6 +46,17 @@ public class simpleautofishing implements ClientModInitializer {
 
 		ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {
 			dispatcher.register(ClientCommands.literal("saf")
+					.then(ClientCommands.literal("toggle")
+							.executes(context -> {
+								enabled = !enabled;
+								if (enabled) {
+									context.getSource().sendFeedback(Component.translatable("text.simpleautofishing.cmd.enabled"));
+								} else {
+									context.getSource().sendFeedback(Component.translatable("text.simpleautofishing.cmd.disabled"));
+								}
+								return 1;
+							})
+					)
 					.then(ClientCommands.literal("set")
 							.then(ClientCommands.argument("delay", IntegerArgumentType.integer())
 									.executes(context -> {
@@ -59,6 +71,10 @@ public class simpleautofishing implements ClientModInitializer {
 	}
 
 	private void onTick(Minecraft _client) {
+		if (!enabled) {
+			return;
+		}
+
 		if (Minecraft.getInstance() == null) {
 			return;
 		} else if (Minecraft.getInstance() != null && client == null) {
@@ -74,6 +90,7 @@ public class simpleautofishing implements ClientModInitializer {
 			reeledIn = false;
 			return;
 		}
+
 		if (client.player.isCrouching() && attackKeyReleased(client.options.keyAttack.isDown())) {
 			FishingRodMode = FishingRodMode.next();
 			if (FishingRodMode == FishingRodModes.fishingRodUnprotected) {
