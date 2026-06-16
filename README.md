@@ -45,6 +45,7 @@ Get it on [modrinth](https://modrinth.com/mod/simple-auto-fishing) or below:
   
 | Minecraft Version  | Forge | NeoForge | Fabric |
 | :----: | :----: | :----: | :----: |
+| 26.2 |  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/neoforge-v1.7.1/simpleautofishing-1.7.1.jar) | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/fabric-v1.7.1/simpleautofishing-1.7.1.jar) |
 | 26.1.2 | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/forge-v1.7.1/simpleautofishing-1.7.1.jar) | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/neoforge-v1.7.1/simpleautofishing-1.7.1.jar) | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/fabric-v1.7.1/simpleautofishing-1.7.1.jar) |
 | 26.1.1 | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/forge-v1.7.0/simpleautofishing-1.7.0.jar) |  | [Download](https://github.com/Jan-Marvin/simple-auto-fishing/releases/download/fabric-v1.7.0/simpleautofishing-1.7.0.jar) |
 
