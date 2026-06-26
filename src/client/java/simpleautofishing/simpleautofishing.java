@@ -14,7 +14,6 @@ import net.minecraft.tags.TagKey;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
-import org.lwjgl.glfw.GLFW;
 import simpleautofishing.mixin.FishingBobberEntityAccessorMixin;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.client.Minecraft;
@@ -79,7 +78,7 @@ public class simpleautofishing implements ClientModInitializer {
 		openGuiKey = KeyMappingHelper.registerKeyMapping(new KeyMapping(
 				"text.simpleautofishing.settings.gui",
 				InputConstants.Type.KEYSYM,
-				GLFW.GLFW_KEY_U,
+				InputConstants.KEY_U,
 				config
 		));
 
