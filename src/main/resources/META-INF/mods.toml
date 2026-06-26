@@ -1,11 +1,11 @@
 modLoader="javafml" 
-loaderVersion="[64,)"
+loaderVersion="[65,)"
 license="CC BY-NC-ND 4.0"
 issueTrackerURL="https://github.com/Jan-Marvin/simple-auto-fishing/issues"
 
 [[mods]]
 modId="simpleautofishing"
-version="1.7.1"
+version="1.8.0"
 displayName="Simple Auto Fishing"
 authors="Jan-Marvin"
 displayURL="https://github.com/Jan-Marvin/simple-auto-fishing"
