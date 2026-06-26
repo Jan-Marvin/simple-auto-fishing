@@ -1,9 +1,12 @@
 package simpleautofishing;
 
 
+import com.mojang.blaze3d.platform.InputConstants;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommands;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
+import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper;
+import net.minecraft.client.KeyMapping;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.core.registries.Registries;
@@ -11,6 +14,7 @@ import net.minecraft.tags.TagKey;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
+import org.lwjgl.glfw.GLFW;
 import simpleautofishing.mixin.FishingBobberEntityAccessorMixin;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.client.Minecraft;
@@ -23,12 +27,13 @@ import org.slf4j.LoggerFactory;
 public class simpleautofishing implements ClientModInitializer {
 	private static Minecraft client;
 	public static boolean enabled = true;
+	public static boolean enableAttackHotkey = true;
 	public static final Logger LOGGER = LoggerFactory.getLogger("simpleautofishing");
-	FishingRodModes FishingRodMode = FishingRodModes.fishingRodUnprotected;
+	public static FishingRodModes FishingRodMode = FishingRodModes.fishingRodUnprotected;
 	int delay = 0;
 	public static int recastDelayTicks = 17;
 	boolean reeledIn, stateAttackKeyReleased = false;
-	enum FishingRodModes {
+	public enum FishingRodModes {
 		fishingRodUnprotected,
 		fishingRodProtected,
 		allInHotbar,
@@ -38,6 +43,7 @@ public class simpleautofishing implements ClientModInitializer {
 			return values()[(ordinal() + 1) % values().length];
 		}
 	};
+	private static KeyMapping openGuiKey;
 
 	@Override
 	public void onInitializeClient() {
@@ -68,6 +74,23 @@ public class simpleautofishing implements ClientModInitializer {
 					)
 			);
 		});
+
+		KeyMapping.Category config = KeyMapping.Category.register(Identifier.fromNamespaceAndPath("saf", "general"));
+		openGuiKey = KeyMappingHelper.registerKeyMapping(new KeyMapping(
+				"text.simpleautofishing.settings.gui",
+				InputConstants.Type.KEYSYM,
+				GLFW.GLFW_KEY_U,
+				config
+		));
+
+		ClientTickEvents.END_CLIENT_TICK.register(client -> {
+			while (openGuiKey.consumeClick()) {
+				if (client.player != null) {
+					client.setScreenAndShow(new gui());
+				}
+			}
+		});
+
 	}
 
 	private void onTick(Minecraft _client) {
@@ -91,7 +114,7 @@ public class simpleautofishing implements ClientModInitializer {
 			return;
 		}
 
-		if (client.player.isCrouching() && attackKeyReleased(client.options.keyAttack.isDown())) {
+		if (enableAttackHotkey && client.player.isCrouching() && attackKeyReleased(client.options.keyAttack.isDown())) {
 			FishingRodMode = FishingRodMode.next();
 			if (FishingRodMode == FishingRodModes.fishingRodUnprotected) {
 				client.player.sendOverlayMessage(Component.translatable("text.simpleautofishing.safMode.fishing_rod_unprotected"));
