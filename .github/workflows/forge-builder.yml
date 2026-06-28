@@ -28,7 +28,7 @@ jobs:
     - name: Generate release body
       run: |
         echo "ReleaseVersion=$(cut -c 7- <<< ${{ github.ref_name }})" >> "$GITHUB_ENV"
-        echo "MinecraftVersion=$(grep 'net.minecraftforge:forge:' build.gradle | sed 's/.*forge:\([0-9]*\.[0-9]*\.[0-9]*\)-.*/\1/')" >> "$GITHUB_ENV"
+        echo "MinecraftVersion=$(net.minecraftforge:forge:" build.gradle | sed 's/.*forge:\([0-9.]*\)-.*/\1/')" >> "$GITHUB_ENV"
         echo "ModVersion=$(grep "^version = " build.gradle | sed "s/version = '//;s/'//")" >> "$GITHUB_ENV"
 
     - name: sign jar
