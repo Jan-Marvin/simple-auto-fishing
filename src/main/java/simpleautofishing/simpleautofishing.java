@@ -1,7 +1,9 @@
 package simpleautofishing;
 
+import com.mojang.blaze3d.platform.InputConstants;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
+import net.minecraft.client.KeyMapping;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -15,6 +17,7 @@ import com.mojang.logging.LogUtils;
 
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.client.event.RegisterClientCommandsEvent;
@@ -30,11 +33,12 @@ public class simpleautofishing {
     public static final Logger LOGGER = LogUtils.getLogger();
     private static Minecraft client;
     public static boolean enabled = true;
+    public static boolean enableAttackHotkey = true;
     boolean reeledIn, stateAttackKeyReleased = false;
-    FishingRodModes FishingRodMode = FishingRodModes.fishingRodUnprotected;
+    public static FishingRodModes FishingRodMode = FishingRodModes.fishingRodUnprotected;
     private int delay = 0;
     public static int recastDelayTicks = 17;
-    enum FishingRodModes {
+    public enum FishingRodModes {
         fishingRodUnprotected,
         fishingRodProtected,
         allInHotbar,
@@ -44,11 +48,29 @@ public class simpleautofishing {
             return values()[(ordinal() + 1) % values().length];
         }
     };
+    private static KeyMapping openGuiKey;
 
-    public simpleautofishing() {
+    public simpleautofishing(net.neoforged.fml.ModContainer container) {
         LOGGER.info("Register simpleautofishing");
-        NeoForge.EVENT_BUS.register(this);
+        NeoForge.EVENT_BUS.addListener(this::ClientTickEvent);
+        NeoForge.EVENT_BUS.addListener(this::RegisterClientCommandsEvent);
+        container.getEventBus().addListener(this::registerBindings);
     }
+
+    @SubscribeEvent
+    public void registerBindings(RegisterKeyMappingsEvent event) {
+        KeyMapping.Category config = new KeyMapping.Category(Identifier.fromNamespaceAndPath("saf", "general"));
+        event.registerCategory(config);
+        openGuiKey = new KeyMapping(
+                "text.simpleautofishing.settings.gui",
+                InputConstants.Type.KEYSYM,
+                InputConstants.KEY_U,
+                config
+        );
+        event.register(openGuiKey);
+    }
+
+
 
     @SubscribeEvent
     public void RegisterClientCommandsEvent(RegisterClientCommandsEvent event) {
@@ -91,6 +113,14 @@ public class simpleautofishing {
 
     @SubscribeEvent
     public void ClientTickEvent(ClientTickEvent.Pre event)  {
+        if (openGuiKey != null) {
+            while (openGuiKey.consumeClick()) {
+                Minecraft mc = Minecraft.getInstance();
+                if (mc.player != null) {
+                    mc.setScreenAndShow(new gui());
+                }
+            }
+        }
         if (!enabled) {
             return;
         }
@@ -111,7 +141,7 @@ public class simpleautofishing {
             return;
         }
 
-        if (client.player.isCrouching() && attackKeyReleased(client.options.keyAttack.isDown())) {
+        if (enableAttackHotkey && client.player.isCrouching() && attackKeyReleased(client.options.keyAttack.isDown())) {
             FishingRodMode = FishingRodMode.next();
             if (FishingRodMode == FishingRodModes.fishingRodUnprotected) {
                 client.player.sendOverlayMessage(Component.translatable("text.simpleautofishing.safMode.fishing_rod_unprotected"));

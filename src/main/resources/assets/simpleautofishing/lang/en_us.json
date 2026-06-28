@@ -3,7 +3,15 @@
   "text.simpleautofishing.safMode.fishing_rod_protected": "Use fishing rod (protected)",
   "text.simpleautofishing.safMode.all_in_hotbar": "Use all fishing rods in hotbar",
   "text.simpleautofishing.safMode.all_in_hotbar_protected": "Use all fishing rods in hotbar (protected)",
+  "text.simpleautofishing.safMode.mode": "Mode",
   "text.simpleautofishing.cmd.recastDelayTicks": "Set recast delay to: %d",
   "text.simpleautofishing.cmd.enabled": "SAF: Enabled",
-  "text.simpleautofishing.cmd.disabled": "SAF: Disabled"
+  "text.simpleautofishing.cmd.disabled": "SAF: Disabled",
+  "key.category.saf.general": "Simple Auto Fishing",
+  "text.simpleautofishing.settings.gui": "GUI",
+  "text.simpleautofishing.gui.name": "Simple Auto Fishing Config",
+  "text.simpleautofishing.gui.delay": "Delay",
+  "text.simpleautofishing.gui.close": "Close",
+  "text.simpleautofishing.gui.hotkeyEnabled": "Hotkey Enabled",
+  "text.simpleautofishing.gui.hotkeyDisabled": "Hotkey Disabled"
 }

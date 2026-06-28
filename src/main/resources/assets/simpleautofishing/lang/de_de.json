@@ -3,7 +3,15 @@
   "text.simpleautofishing.safMode.fishing_rod_protected": "Ausgewählte Angel verwenden (geschützt)",
   "text.simpleautofishing.safMode.all_in_hotbar": "Alle Angeln in der Schnellzugriffsleiste verwenden",
   "text.simpleautofishing.safMode.all_in_hotbar_protected": "Alle Angeln in der Schnellzugriffsleiste verwenden (geschützt)",
+  "text.simpleautofishing.safMode.mode": "Modus",
   "text.simpleautofishing.cmd.recastDelayTicks": "Setze die Angelverzögerung auf: %d",
   "text.simpleautofishing.cmd.enabled": "SAF: Aktiviert",
-  "text.simpleautofishing.cmd.disabled": "SAF: Deaktiviert"
+  "text.simpleautofishing.cmd.disabled": "SAF: Deaktiviert",
+  "key.category.saf.general": "Simple Auto Fishing",
+  "text.simpleautofishing.settings.gui": "GUI",
+  "text.simpleautofishing.gui.name": "Simple Auto Fishing Konfig",
+  "text.simpleautofishing.gui.delay": "Verzögerung",
+  "text.simpleautofishing.gui.close": "Schließen",
+  "text.simpleautofishing.gui.hotkeyEnabled": "Hotkey Aktivert",
+  "text.simpleautofishing.gui.hotkeyDisabled": "Hotkey Deativert"
 }
