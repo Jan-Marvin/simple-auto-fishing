@@ -14,6 +14,7 @@ import net.minecraft.tags.TagKey;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.item.component.SwingAnimation;
 import simpleautofishing.mixin.FishingBobberEntityAccessorMixin;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.client.Minecraft;
@@ -77,7 +78,7 @@ public class simpleautofishing implements ClientModInitializer {
 		KeyMapping.Category config = KeyMapping.Category.register(Identifier.fromNamespaceAndPath("saf", "general"));
 		openGuiKey = KeyMappingHelper.registerKeyMapping(new KeyMapping(
 				"text.simpleautofishing.settings.gui",
-				InputConstants.Type.KEYSYM,
+				InputConstants.Type.KEYBOARD,
 				InputConstants.KEY_U,
 				config
 		));
@@ -148,17 +149,17 @@ public class simpleautofishing implements ClientModInitializer {
 	public void useRod() {
 		switch (FishingRodMode) {
 			case FishingRodModes.fishingRodUnprotected:
-				client.player.swing(InteractionHand.MAIN_HAND);
+				client.player.swing(InteractionHand.MAIN_HAND, SwingAnimation.DEFAULT, true);
 				client.gameMode.useItem(client.player, InteractionHand.MAIN_HAND);
 				break;
 			case FishingRodModes.fishingRodProtected:
 				if (client.player.getItemInHand(InteractionHand.MAIN_HAND).getDamageValue() <= client.player.getItemInHand(InteractionHand.MAIN_HAND).getMaxDamage() - 4) {
-					client.player.swing(InteractionHand.MAIN_HAND);
+					client.player.swing(InteractionHand.MAIN_HAND, SwingAnimation.DEFAULT, true);
 					client.gameMode.useItem(client.player, InteractionHand.MAIN_HAND);
 				}
 				break;
 			case FishingRodModes.allInHotbar:
-				client.player.swing(InteractionHand.MAIN_HAND);
+				client.player.swing(InteractionHand.MAIN_HAND, SwingAnimation.DEFAULT, true);
 				client.gameMode.useItem(client.player, InteractionHand.MAIN_HAND);
 				if (reeledIn) {
 					break;
@@ -189,7 +190,7 @@ public class simpleautofishing implements ClientModInitializer {
 					}
 					if (!switched) break;
 				}
-				client.player.swing(InteractionHand.MAIN_HAND);
+				client.player.swing(InteractionHand.MAIN_HAND, SwingAnimation.DEFAULT, true);
 				client.gameMode.useItem(client.player, InteractionHand.MAIN_HAND);
 		}
 	}
