@@ -8,7 +8,7 @@ modId="${mod_id}"
 version="${mod_version}"
 displayName="${mod_name}"
 displayURL="https://github.com/Jan-Marvin/simple-auto-fishing"
-logoFile="saf.png"
+bannerFile="saf.png"
 authors="Jan-Marvin"
 description='''Simple Auto Fishing'''
 

@@ -15,6 +15,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.Items;
 import com.mojang.logging.LogUtils;
 
+import net.minecraft.world.item.component.SwingAnimation;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
@@ -63,7 +64,7 @@ public class simpleautofishing {
         event.registerCategory(config);
         openGuiKey = new KeyMapping(
                 "text.simpleautofishing.settings.gui",
-                InputConstants.Type.KEYSYM,
+                InputConstants.Type.KEYBOARD,
                 InputConstants.KEY_U,
                 config
         );
@@ -175,17 +176,17 @@ public class simpleautofishing {
     public void useRod() {
         switch (FishingRodMode) {
             case FishingRodModes.fishingRodUnprotected:
-                client.player.swing(InteractionHand.MAIN_HAND);
+                client.player.swing(InteractionHand.MAIN_HAND, SwingAnimation.DEFAULT, true);
                 client.gameMode.useItem(client.player, InteractionHand.MAIN_HAND);
                 break;
             case FishingRodModes.fishingRodProtected:
                 if (client.player.getMainHandItem().getDamageValue() <= client.player.getMainHandItem().getMaxDamage() - 4) {
-                    client.player.swing(InteractionHand.MAIN_HAND);
+                    client.player.swing(InteractionHand.MAIN_HAND, SwingAnimation.DEFAULT, true);
                     client.gameMode.useItem(client.player, InteractionHand.MAIN_HAND);
                 }
                 break;
             case FishingRodModes.allInHotbar:
-                client.player.swing(InteractionHand.MAIN_HAND);
+                client.player.swing(InteractionHand.MAIN_HAND, SwingAnimation.DEFAULT, true);
                 client.gameMode.useItem(client.player, InteractionHand.MAIN_HAND);
                 if (reeledIn) {
                     break;
@@ -216,7 +217,7 @@ public class simpleautofishing {
                     }
                     if (!switched) break;
                 }
-                client.player.swing(InteractionHand.MAIN_HAND);
+                client.player.swing(InteractionHand.MAIN_HAND, SwingAnimation.DEFAULT, true);
                 client.gameMode.useItem(client.player, InteractionHand.MAIN_HAND);
         }
     }
