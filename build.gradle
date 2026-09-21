@@ -46,8 +46,8 @@ repositories {
 }
 
 dependencies {
-    implementation minecraft.dependency('net.minecraftforge:forge:26.2-65.0.1')
-    annotationProcessor 'net.minecraftforge:eventbus-validator:7.0.1'
+    implementation minecraft.dependency('net.minecraftforge:forge:26.3-66.0.2')
+    annotationProcessor 'net.minecraftforge:eventbus-validator:7.0.6'
 }
 
 tasks.withType(JavaCompile).configureEach {

@@ -14,6 +14,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.InteractionHand;
 import com.mojang.logging.LogUtils;
+import net.minecraft.world.item.component.SwingAnimation;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -103,7 +104,7 @@ public class simpleautofishing {
 		KeyMapping.Category config = KeyMapping.Category.register(Identifier.fromNamespaceAndPath("saf", "general"));
 		openGuiKey = new KeyMapping(
 				"text.simpleautofishing.settings.gui",
-				InputConstants.Type.KEYSYM,
+				InputConstants.Type.KEYBOARD,
 				InputConstants.KEY_U,
 				config
 		);
@@ -176,17 +177,17 @@ public class simpleautofishing {
 	public void useRod() {
 		switch (FishingRodMode) {
 			case FishingRodModes.fishingRodUnprotected:
-				client.player.swing(InteractionHand.MAIN_HAND);
+				client.player.swing(InteractionHand.MAIN_HAND, SwingAnimation.DEFAULT, true);
 				client.gameMode.useItem(client.player, InteractionHand.MAIN_HAND);
 				break;
 			case FishingRodModes.fishingRodProtected:
 				if (client.player.getMainHandItem().getDamageValue() <= client.player.getMainHandItem().getMaxDamage() - 4) {
-					client.player.swing(InteractionHand.MAIN_HAND);
+					client.player.swing(InteractionHand.MAIN_HAND, SwingAnimation.DEFAULT, true);
 					client.gameMode.useItem(client.player, InteractionHand.MAIN_HAND);
 				}
 				break;
 			case FishingRodModes.allInHotbar:
-				client.player.swing(InteractionHand.MAIN_HAND);
+				client.player.swing(InteractionHand.MAIN_HAND, SwingAnimation.DEFAULT, true);
 				client.gameMode.useItem(client.player, InteractionHand.MAIN_HAND);
 				if (reeledIn) {
 					break;
@@ -217,7 +218,7 @@ public class simpleautofishing {
 					}
 					if (!switched) break;
 				}
-				client.player.swing(InteractionHand.MAIN_HAND);
+				client.player.swing(InteractionHand.MAIN_HAND, SwingAnimation.DEFAULT, true);
 				client.gameMode.useItem(client.player, InteractionHand.MAIN_HAND);
 		}
 	}
